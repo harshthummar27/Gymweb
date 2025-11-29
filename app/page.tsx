@@ -1,17 +1,29 @@
+import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Categories from '@/components/Categories'
-import HighProteinFood from '@/components/HighProteinFood'
-import ProteinRequirementCalculator from '@/components/ProteinRequirementCalculator'
-import BMICalculator from '@/components/BMICalculator'
-import IdealWeightCalculator from '@/components/IdealWeightCalculator'
-import CaloriesEstimateCalculator from '@/components/CaloriesEstimateCalculator'
-import GymToolsHero from '@/components/GymToolsHero'
-import About from '@/components/About'
-import Services from '@/components/Services'
+import ServicesPreview from '@/components/ServicesPreview'
+import NutritionSection from '@/components/NutritionSection'
+import ToolsPreview from '@/components/ToolsPreview'
 import Features from '@/components/Features'
-import Contact from '@/components/Contact'
+import StatsSection from '@/components/StatsSection'
+import GymToolsHero from '@/components/GymToolsHero'
+import CTASection from '@/components/CTASection'
 import Footer from '@/components/Footer'
+
+export const metadata: Metadata = {
+  title: 'FitZone Gym - Transform Your Body, Transform Your Life',
+  description: 'Join FitZone Gym for the ultimate fitness experience. State-of-the-art equipment, expert trainers, and a supportive community. Calculate BMI, protein needs, calories, and more with our free fitness tools.',
+  keywords: 'gym, fitness center, workout, exercise, personal training, fitness tools, BMI calculator, protein calculator, calorie calculator, fitness community',
+  openGraph: {
+    title: 'FitZone Gym - Transform Your Body, Transform Your Life',
+    description: 'Join FitZone Gym for the ultimate fitness experience with state-of-the-art equipment and expert trainers.',
+    type: 'website',
+  },
+  alternates: {
+    canonical: '/',
+  },
+}
 
 export default function Home() {
   return (
@@ -19,16 +31,13 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Categories />
-      <HighProteinFood />
-      <ProteinRequirementCalculator />
-      <BMICalculator />
-      <IdealWeightCalculator />
-      <CaloriesEstimateCalculator />
-      <About />
-      <Services />
+      <ServicesPreview />
+      <NutritionSection />
+      <ToolsPreview />
       <Features />
+      <StatsSection />
       <GymToolsHero />
-      <Contact />
+      <CTASection />
       <Footer />  
     </main>
   )

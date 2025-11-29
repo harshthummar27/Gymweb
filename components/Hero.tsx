@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -38,16 +39,8 @@ export default function Hero() {
     setCurrentSlide(index)
   }
 
-  const goToPrevious = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  }
-
-  const goToNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
-  }
-
   return (
-    <section id="home" className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative h-[50vh] min-h-[400px] sm:min-h-[450px] flex items-center justify-center overflow-hidden">
       {/* Image Slider */}
       <div className="absolute inset-0 w-full h-full">
         {slides.map((slide, index) => (
@@ -72,66 +65,45 @@ export default function Hero() {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 text-center w-full py-8 md:py-12">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4 animate-fade-in">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 text-center w-full py-2 sm:py-4 md:py-6">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2 md:mb-3 animate-fade-in">
           Transform Your Body
         </h1>
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#9fcc2e] mb-4 md:mb-6">
+        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[#9fcc2e] mb-2 sm:mb-3 md:mb-4">
           Transform Your Life
         </h2>
-        <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-4 md:mb-5 max-w-3xl mx-auto px-2">
+        <p className="text-xs sm:text-sm md:text-base text-gray-300 mb-2 sm:mb-3 md:mb-4 max-w-3xl mx-auto px-2">
           Join FitZone Gym and experience the ultimate fitness journey with state-of-the-art equipment, expert trainers, and a supportive community.
         </p>
         
         {/* Nutrition Text */}
-        <div className="mb-6 md:mb-8">
-          <p className="text-base sm:text-lg md:text-xl font-semibold text-white mb-1 md:mb-2">
+        <div className="mb-2 sm:mb-3 md:mb-4">
+          <p className="text-sm sm:text-base md:text-lg font-semibold text-white mb-0.5 sm:mb-1">
             Find protein, calcium and minerals in any food-fast
           </p>
-          <p className="text-xs sm:text-sm md:text-base text-gray-300 max-w-2xl mx-auto px-2">
+          <p className="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto px-2">
             Discover the nutritional value of any food instantly with our advanced nutrition finder
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center px-2">
-          <a
-            href="#contact"
-            className="bg-[#9fcc2e] hover:bg-[#295135] text-white font-semibold py-2.5 px-5 sm:py-3 sm:px-6 rounded-lg text-sm sm:text-base transition duration-300 transform hover:scale-105 shadow-lg"
+        <div className="flex flex-col sm:flex-row gap-2 justify-center px-2">
+          <Link
+            href="/contact"
+            className="bg-[#9fcc2e] hover:bg-[#295135] text-white font-semibold py-1.5 px-4 sm:py-2 sm:px-5 md:py-2.5 md:px-6 rounded-lg text-xs sm:text-sm md:text-base transition duration-300 transform hover:scale-105 shadow-lg"
           >
             Get Started Today
-          </a>
-          <a
-            href="#about"
-            className="bg-transparent border-2 border-white text-white font-semibold py-2.5 px-5 sm:py-3 sm:px-6 rounded-lg text-sm sm:text-base transition duration-300 hover:bg-white hover:text-gray-900"
+          </Link>
+          <Link
+            href="/about"
+            className="bg-transparent border-2 border-white text-white font-semibold py-1.5 px-4 sm:py-2 sm:px-5 md:py-2.5 md:px-6 rounded-lg text-xs sm:text-sm md:text-base transition duration-300 hover:bg-white hover:text-gray-900"
           >
             Learn More
-          </a>
+          </Link>
         </div>
       </div>
 
-      {/* Slider Controls */}
-      <button
-        onClick={goToPrevious}
-        className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-white p-2 md:p-3 rounded-full transition duration-300"
-        aria-label="Previous slide"
-      >
-        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-
-      <button
-        onClick={goToNext}
-        className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-white p-2 md:p-3 rounded-full transition duration-300"
-        aria-label="Next slide"
-      >
-        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-
       {/* Slider Indicators */}
-      <div className="absolute bottom-12 md:bottom-20 left-1/2 transform -translate-x-1/2 z-20 flex gap-2 md:gap-3">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -144,13 +116,6 @@ export default function Hero() {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
-      
-      {/* Scroll indicator */}
-      <div className="absolute bottom-4 md:bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-        <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
       </div>
     </section>
   )

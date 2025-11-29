@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -18,9 +19,28 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-12 md:h-14 gap-2 md:gap-4">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" className="text-lg sm:text-xl md:text-2xl font-bold text-[#9fcc2e] hover:text-[#5a6650] transition">
+            <Link href="/" className="text-lg sm:text-xl md:text-2xl font-bold text-[#9fcc2e] hover:text-[#5a6650] transition">
               FitZone
-            </a>
+            </Link>
+          </div>
+          
+          {/* Navigation Links - Desktop */}
+          <div className="hidden lg:flex items-center gap-4">
+            <Link href="/about" className="text-white hover:text-[#9fcc2e] transition text-sm">
+              About
+            </Link>
+            <Link href="/services" className="text-white hover:text-[#9fcc2e] transition text-sm">
+              Services
+            </Link>
+            <Link href="/categories" className="text-white hover:text-[#9fcc2e] transition text-sm">
+              Categories
+            </Link>
+            <Link href="/nutrition" className="text-white hover:text-[#9fcc2e] transition text-sm">
+              Nutrition
+            </Link>
+            <Link href="/contact" className="text-white hover:text-[#9fcc2e] transition text-sm">
+              Contact
+            </Link>
           </div>
           
           {/* Search Bar - Desktop */}
@@ -45,12 +65,12 @@ export default function Navbar() {
 
           {/* Buttons - Desktop */}
           <div className="hidden md:flex items-center gap-2 flex-shrink-0">
-            <button className="bg-[#9fcc2e] hover:bg-[#295135] text-white font-semibold py-1.5 px-4 text-sm rounded-lg transition duration-300 transform hover:scale-105">
-              Calculate
-            </button>
-            <button className="bg-transparent border-2 border-[#9fcc2e] hover:bg-[#9fcc2e] text-[#9fcc2e] hover:text-white font-semibold py-1.5 px-4 text-sm rounded-lg transition duration-300">
-              Diet Plan
-            </button>
+            <Link href="/tools" className="bg-[#9fcc2e] hover:bg-[#295135] text-white font-semibold py-1.5 px-4 text-sm rounded-lg transition duration-300 transform hover:scale-105">
+            Calculators
+            </Link>
+            <Link href="/nutrition" className="bg-transparent border-2 border-[#9fcc2e] hover:bg-[#9fcc2e] text-[#9fcc2e] hover:text-white font-semibold py-1.5 px-4 text-sm rounded-lg transition duration-300">
+              Nutrition
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -93,14 +113,36 @@ export default function Navbar() {
               </div>
             </form>
 
-            {/* Mobile Buttons */}
+            {/* Mobile Navigation Links */}
             <div className="flex flex-col gap-2">
-              <button className="w-full bg-[#9fcc2e] hover:bg-[#295135] text-white font-semibold py-2 px-4 text-sm rounded-lg transition duration-300">
-                Calculate
-              </button>
-              <button className="w-full bg-transparent border-2 border-[#9fcc2e] hover:bg-[#9fcc2e] text-[#9fcc2e] hover:text-white font-semibold py-2 px-4 text-sm rounded-lg transition duration-300">
-                Diet Plan
-              </button>
+              <Link href="/about" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#9fcc2e] py-2 px-2 text-sm transition">
+                About
+              </Link>
+              <Link href="/services" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#9fcc2e] py-2 px-2 text-sm transition">
+                Services
+              </Link>
+              <Link href="/categories" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#9fcc2e] py-2 px-2 text-sm transition">
+                Categories
+              </Link>
+              <Link href="/tools/bmi-calculator" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#9fcc2e] py-2 px-2 text-sm transition">
+                Fitness Tools
+              </Link>
+              <Link href="/nutrition" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#9fcc2e] py-2 px-2 text-sm transition">
+                Nutrition
+              </Link>
+              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#9fcc2e] py-2 px-2 text-sm transition">
+                Contact
+              </Link>
+            </div>
+            
+            {/* Mobile Buttons */}
+            <div className="flex flex-col gap-2 pt-2 border-t border-gray-700">
+              <Link href="/tools/bmi-calculator" onClick={() => setIsMenuOpen(false)} className="w-full bg-[#9fcc2e] hover:bg-[#295135] text-white font-semibold py-2 px-4 text-sm rounded-lg transition duration-300 text-center">
+                Fitness Tools
+              </Link>
+              <Link href="/nutrition" onClick={() => setIsMenuOpen(false)} className="w-full bg-transparent border-2 border-[#9fcc2e] hover:bg-[#9fcc2e] text-[#9fcc2e] hover:text-white font-semibold py-2 px-4 text-sm rounded-lg transition duration-300 text-center">
+                Nutrition Guide
+              </Link>
             </div>
           </div>
         </div>

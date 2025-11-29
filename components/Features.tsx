@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Features() {
   const features = [
     {
@@ -62,6 +64,15 @@ export default function Features() {
               </div>
             </div>
           ))}
+        </div>
+        
+        <div className="text-center mt-6 md:mt-8">
+          <Link
+            href="/about"
+            className="inline-block bg-[#9fcc2e] hover:bg-[#295135] text-white font-semibold py-3 px-6 md:px-8 rounded-lg text-sm sm:text-base md:text-lg transition duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Learn More About Us →
+          </Link>
         </div>
       </div>
     </section>

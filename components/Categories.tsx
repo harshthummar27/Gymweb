@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Categories() {
   const categories = [
     {
@@ -82,7 +84,7 @@ export default function Categories() {
           <div className="w-12 md:w-16 h-0.5 md:h-1 bg-[#9fcc2e] mx-auto mb-2 md:mb-3"></div>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 xl:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 xl:grid-cols-10 gap-2 sm:gap-3 md:gap-4 mb-4 md:mb-6">
           {categories.map((category) => (
             <div
               key={category.id}
@@ -101,6 +103,15 @@ export default function Categories() {
               </div>
             </div>
           ))}
+        </div>
+        
+        <div className="text-center mt-4 md:mt-6">
+          <Link
+            href="/categories"
+            className="inline-block bg-[#9fcc2e] hover:bg-[#295135] text-white font-semibold py-2 px-6 md:px-8 rounded-lg text-sm sm:text-base transition duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Browse All Categories →
+          </Link>
         </div>
       </div>
     </section>

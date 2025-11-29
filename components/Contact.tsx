@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import DietPlanForm from './DietPlanForm'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -26,7 +27,9 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-8 md:py-12 bg-gray-900 text-white">
+    <>
+      <DietPlanForm />
+      <section id="contact" className="py-8 md:py-12 bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="text-center mb-6 md:mb-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-3">
@@ -151,6 +154,7 @@ export default function Contact() {
         </div>
       </div>
     </section>
+    </>
   )
 }
 

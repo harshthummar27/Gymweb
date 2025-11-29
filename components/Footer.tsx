@@ -1,10 +1,14 @@
+import Link from 'next/link'
+
 export default function Footer() {
   return (
     <footer className="bg-black text-white py-6 md:py-8">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="grid md:grid-cols-4 gap-4 md:gap-6 mb-4 md:mb-6">
           <div>
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#9fcc2e] mb-2 md:mb-3">FitZone</h3>
+            <Link href="/">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#9fcc2e] mb-2 md:mb-3 hover:text-[#7fb020] transition cursor-pointer">FitZone</h3>
+            </Link>
             <p className="text-xs sm:text-sm text-gray-400">
               Transform your body, transform your life. Join the FitZone community today.
             </p>
@@ -12,19 +16,19 @@ export default function Footer() {
           <div>
             <h4 className="text-sm sm:text-base md:text-lg font-bold mb-2 md:mb-3">Quick Links</h4>
             <ul className="space-y-1 md:space-y-2 text-xs sm:text-sm text-gray-400">
-              <li><a href="#home" className="hover:text-[#9fcc2e] transition">Home</a></li>
-              <li><a href="#about" className="hover:text-[#9fcc2e] transition">About</a></li>
-              <li><a href="#services" className="hover:text-[#9fcc2e] transition">Services</a></li>
-              <li><a href="#features" className="hover:text-[#9fcc2e] transition">Features</a></li>
+              <li><Link href="/" className="hover:text-[#9fcc2e] transition">Home</Link></li>
+              <li><Link href="/about" className="hover:text-[#9fcc2e] transition">About</Link></li>
+              <li><Link href="/services" className="hover:text-[#9fcc2e] transition">Services</Link></li>
+              <li><Link href="/contact" className="hover:text-[#9fcc2e] transition">Contact</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-sm sm:text-base md:text-lg font-bold mb-2 md:mb-3">Services</h4>
+            <h4 className="text-sm sm:text-base md:text-lg font-bold mb-2 md:mb-3">Tools & Resources</h4>
             <ul className="space-y-1 md:space-y-2 text-xs sm:text-sm text-gray-400">
-              <li><a href="#" className="hover:text-[#9fcc2e] transition">Personal Training</a></li>
-              <li><a href="#" className="hover:text-[#9fcc2e] transition">Group Classes</a></li>
-              <li><a href="#" className="hover:text-[#9fcc2e] transition">Nutrition Counseling</a></li>
-              <li><a href="#" className="hover:text-[#9fcc2e] transition">Membership Plans</a></li>
+              <li><Link href="/tools" className="hover:text-[#9fcc2e] transition">Fitness Tools</Link></li>
+              <li><Link href="/tools/bmi-calculator" className="hover:text-[#9fcc2e] transition">BMI Calculator</Link></li>
+              <li><Link href="/tools/protein-requirement-calculator" className="hover:text-[#9fcc2e] transition">Protein Calculator</Link></li>
+              <li><Link href="/nutrition/high-protein-foods" className="hover:text-[#9fcc2e] transition">Nutrition Guide</Link></li>
             </ul>
           </div>
           <div>
